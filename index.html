@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Booking Fotografer</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h2>Booking Videografer</h2>
+      <form id="bookingForm">
+        <label for="nama">Nama Anda</label>
+        <input type="text" id="nama" required />
+
+        <label for="tanggal">Tanggal Acara</label>
+        <input type="date" id="tanggal" required />
+
+        <label for="acara">Jenis Acara</label>
+        <select id="acara" required>
+          <option value="">-- Pilih --</option>
+          <option value="Pernikahan">Pernikahan</option>
+          <option value="Ulang Tahun">Ulang Tahun</option>
+          <option value="Wisuda">Wisuda</option>
+          <option value="Lainnya">Lainnya</option>
+        </select>
+
+        <label for="kontak">Nomor WhatsApp Anda</label>
+        <input type="text" id="kontak" placeholder="08xxxx" required />
+
+        <button type="submit">Kirim ke WhatsApp</button>
+      </form>
+    </div>
+
+    <script>
+      document
+        .getElementById("bookingForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const nama = document.getElementById("nama").value.trim();
+          const tanggal = document.getElementById("tanggal").value;
+          const acara = document.getElementById("acara").value;
+          const kontak = document.getElementById("kontak").value.trim();
+
+          const nomorVendor = "6289654817912"; // Nomor vendor dalam format internasional
+
+          const pesan = `Halo, saya ingin booking jasa videografi Binarkala :\n\nNama: ${nama}\nTanggal: ${tanggal}\nAcara: ${acara}\nKontak saya: ${kontak}`;
+
+          const linkWa = `https://wa.me/${nomorVendor}?text=${encodeURIComponent(
+            pesan
+          )}`;
+
+          window.open(linkWa, "_blank");
+        });
+    </script>
+  </body>
+</html>

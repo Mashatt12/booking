@@ -1,0 +1,70 @@
+/* style.css */
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  padding: 20px;
+  background: #fcefcb;
+  color: #a86523;
+}
+
+.container input,
+.container select,
+.container.bookingForm,
+.container textarea {
+  color: #a86523;
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box; /* Ini yang penting */
+  font-size: 14px;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #a86523;
+}
+
+label {
+  display: block;
+  margin-top: 15px;
+  font-weight: 600;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  transition: border-color 0.3s;
+  color: #a86523;
+}
+
+input:focus,
+select:focus {
+  color: #a86523;
+  border-color: #a86523;
+  outline: none;
+}
+
+button {
+  margin-top: 25px;
+  width: 100%;
+  padding: 12px;
+  background-color: #a86523;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background-color: #fad59a;
+}
