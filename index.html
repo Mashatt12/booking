@@ -3,12 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Booking Fotografer</title>
+    <title>Booking Videografer - Binarkala</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="container">
-      <h2>Booking Videografer</h2>
+      <h2>Booking Binarkala Videografi</h2>
       <form id="bookingForm">
         <label for="nama">Nama Anda</label>
         <input type="text" id="nama" required />
@@ -25,8 +25,30 @@
           <option value="Lainnya">Lainnya</option>
         </select>
 
-        <label for="kontak">Nomor WhatsApp Anda</label>
+        <label for="lokasi">Lokasi Acara</label>
+        <input type="text" id="lokasi" required />
+
+        <label for="kontak">Kontak WhatsApp / HP</label>
         <input type="text" id="kontak" placeholder="08xxxx" required />
+
+        <label for="paket">Pilih Jenis dan Durasi Video</label>
+        <select id="paket" required>
+          <option value="">-- Pilih Paket --</option>
+          <option value="Wedding Cinematic (3–5 menit) – Rp 800.000">
+            Wedding Cinematic (3–5 menit) – Rp 800.000
+          </option>
+          <option value="Video Dokumenter (10–15 menit) – Rp 1.500.000">
+            Video Dokumenter (10–15 menit) – Rp 1.500.000
+          </option>
+          <option value="Keduanya">Keduanya</option>
+        </select>
+
+        <label for="catatan">Permintaan Khusus / Catatan Tambahan</label>
+        <textarea
+          id="catatan"
+          rows="3"
+          placeholder="Tulis di sini..."
+        ></textarea>
 
         <button type="submit">Kirim ke WhatsApp</button>
       </form>
@@ -41,16 +63,20 @@
           const nama = document.getElementById("nama").value.trim();
           const tanggal = document.getElementById("tanggal").value;
           const acara = document.getElementById("acara").value;
+          const lokasi = document.getElementById("lokasi").value.trim();
           const kontak = document.getElementById("kontak").value.trim();
+          const paket = document.getElementById("paket").value;
+          const catatan = document.getElementById("catatan").value.trim();
 
-          const nomorVendor = "6289654817912"; // Nomor vendor dalam format internasional
+          const nomorVendor = "6289654817912";
 
-          const pesan = `Halo, saya ingin booking jasa videografi Binarkala :\n\nNama: ${nama}\nTanggal: ${tanggal}\nAcara: ${acara}\nKontak saya: ${kontak}`;
+          const pesan = `Halo, saya ingin booking jasa videografi Binarkala:\n\nNama: ${nama}\nTanggal: ${tanggal}\nJenis Acara: ${acara}\nLokasi: ${lokasi}\nKontak: ${kontak}\n\nPaket Video:\n${paket}\n\nCatatan Tambahan:\n${
+            catatan || "-"
+          }`;
 
           const linkWa = `https://wa.me/${nomorVendor}?text=${encodeURIComponent(
             pesan
           )}`;
-
           window.open(linkWa, "_blank");
         });
     </script>
